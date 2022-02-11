@@ -17,11 +17,11 @@ const char *BRIGHT_FILE = BRIGHT_FILE_LITERAL;
 
 
 #define ICON_PATH_BRIGHTNESS_LOW \
-  "/usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-low"
+  "/usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-low-symbolic.svg"
 #define ICON_PATH_BRIGHTNESS_MEDIUM \
-  "/usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-medium"
+  "/usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-medium-symbolic.svg"
 #define ICON_PATH_BRIGHTNESS_HIGH \
-  "/usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-high"
+  "/usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-high-symbolic.svg"
 
 #define NOTIFICATION_TIMEOUT_MS 1000
 #define NOTIFICATION_CATEGORY_LITERAL    "brightness"
