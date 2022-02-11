@@ -36,7 +36,7 @@ int percentage_to_parabolic(int x) { return (uint32_t)(x * x * BRIGHTNESS_MAX) /
 int parabolic_to_percentage(int y) { return sqrt(y*10000/BRIGHTNESS_MAX); }
 
 
-static void display_brightness(int percentage) {
+static void display_notification(int percentage) {
   char *summary = (char*)NOTIFICATION_CATEGORY_LITERAL;
   char *icon;
 
@@ -106,7 +106,7 @@ int main(int argc, char *argv[]) {
   else {
     printf("%d\n", current_brightness);
     fflush(stdout);
-    display_brightness(current_brightness);
+    display_notification(current_brightness);
     return EXIT_SUCCESS;
   }
 
@@ -129,7 +129,7 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  display_brightness(new_brightness);
+  display_notification(new_brightness);
 
   return EXIT_SUCCESS;
 }
