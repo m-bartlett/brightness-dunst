@@ -1,10 +1,17 @@
 # Compile each .c file into its own synonymous executable
 TARGET = brightness-dunst
 
-CC = gcc
+CC      =  g++
+CFLAGS  += -std=c++17 -I$(PREFIX)/include
+CFLAGS  += -D_POSIX_C_SOURCE=200112L
+CFLAGS  += $(shell pkg-config --cflags libnotify)
+LDFLAGS += -L$(PREFIX)/lib
+
+LIBS     = -lm
+LIBS		 += $(shell pkg-config --libs libnotify)
+
 PREFIX    ?= /usr/local
 BINPREFIX  = $(PREFIX)/bin
-LDFLAGS += -lm
 
 .PHONY:
 	install
@@ -12,7 +19,8 @@ LDFLAGS += -lm
 all: $(TARGET)
 
 $(TARGET): $(patsubst %,%.c, $(TARGET))
-	$(CC) $(LDFLAGS) $< -o $@
+	$(CC) $(CFLAGS) $(LDFLAGS) $< -o $@  $(LIBS)
+
 
 install: $(TARGET)
 # 4 is SetUID sticky bit
